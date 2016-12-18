@@ -1,0 +1,26 @@
+<%if session[:username].present? && session[:user_id].present? %>
+<h2>Welcome <%= p session[:username]%></h2>
+<% else %>
+
+<div class="login">	
+	<%= form_tag(:action => 'attempt_login') do %>
+	<table>
+		<tr>
+			<td><%= label_tag(:username)%></td>
+			<td><%= text_field_tag(:username)%></td>
+		</tr>
+		<tr>
+			<td><%= label_tag(:password)%></td>
+			<td><%= password_field_tag(:password)%></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><%= submit_tag("Log In")%></td>
+		</tr>
+	</table>
+	<% end %>
+</div>
+OR <%=link_to("Register",{:controller => 'users',:action => 'new'})%>
+<%end%>
+
+
