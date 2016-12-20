@@ -1,0 +1,12 @@
+<%link_to "Back to List",{:action => 'index'},:class => 'back-link'%>
+
+<div class="New Article">
+	<%= form_for(:article, :url => {:action => 'create'}) do |f|%>
+	<%= render(:partial => 'form',:locals =>{:f => f})%>
+	
+	<div class="form-buttons">
+		<%= submit_tag('Post')%>
+	</div>
+	<% end %>
+	
+</div>

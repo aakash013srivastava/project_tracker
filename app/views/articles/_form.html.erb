@@ -1,0 +1,16 @@
+<%= error_messages_for(@article)%>
+
+<table summary = "Article Form Fields">
+	<tr>
+    <th><%= f.label(:article_name) %></th>
+    <td><%= f.text_field(:article_name) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:category) %></th>
+    <td><%= f.select(:category,['Systems Development','Mobile Development','Programming Languages','Web Development Frameworks']) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:content) %></th>
+    <td><%= f.text_area(:content,:size => "150x30") %></td>
+  </tr>
+</table>
