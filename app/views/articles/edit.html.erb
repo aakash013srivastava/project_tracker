@@ -1,0 +1,24 @@
+<%link_to("Back to List",:controller => 'articles',:action => 'index')%>
+
+<%= form_for(:article,:url => {:action => 'update',:id => @article.id}) do |f|%>
+
+<table summary = "Edit Article Form Fields">
+	<tr>
+    <th><%= f.label(:article_name) %></th>
+    <td><%= f.text_field(:article_name) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:category) %></th>
+    <td><%= f.select(:category,['Systems Development','Mobile Development','Programming Languages','Web Development Frameworks']) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:content) %></th>
+    <td><%= f.text_area(:content,:size => "150x30") %></td>
+  </tr>
+</table>
+
+<div class="edit-form-buttons">
+		<%= submit_tag('Post')%>
+</div>
+
+<% end %>
