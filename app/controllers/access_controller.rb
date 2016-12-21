@@ -22,7 +22,7 @@ class AccessController < ApplicationController
 		session[:user_id] = auth_user.id
 		session[:username] = auth_user.username
 		flash[:notice] = "Logged in successfully"
-		redirect_to(:controller =>'users', :action => 'index')
+		redirect_to(:controller =>'articles', :action => 'index')
 	else
 		flash[:notice] = "Invalid Username/Password combination"
 		redirect_to(:action => 'login')

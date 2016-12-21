@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   
-  
   def index
 	@users = User.sorted
   end
@@ -36,7 +35,7 @@ class UsersController < ApplicationController
   def delete
 	@user = User.find(params[:id])
   end
-
+	
   def destroy
 	User.find(params[:id]).destroy
 	flash[:notice] = "User deleted!"

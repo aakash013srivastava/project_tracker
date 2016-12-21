@@ -3,9 +3,10 @@
 <table summary = "Articles List" border = "1">
 	<tr>
 		<th>Article ID</th>
-		<th>Article Category</th>
+		<th>Category</th>
 		<th>Article Name</th>
-		<th>Article Date</th>
+		<th>Published Date</th>
+		<th>Visible</th>
 		<th>Action Items</th>
 	</tr>
 	<%@articles.each do |k|%>
@@ -14,6 +15,7 @@
 	<td><%= k.category%></td>
 	<td><%= k.article_name%></td>
 	<td><%= k.created_at%></td>
+	<td><%= if k.visible = "1" then "Yes" else "No" end%></td>
 	<td><%= link_to("Edit",{:action => 'edit',:id => k.id})%>/<%= link_to("Destroy",{:action => 'destroy',:id => k.id})%></td>
 	</tr>
 	<% end %>

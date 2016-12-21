@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
 def index
-	@article = Article.find(session[:user_id])
+	@articles = Article.all#where(:user_id => session[:user_id])
 end
 
 def new
@@ -10,6 +10,7 @@ end
 
 def create
 	@article = Article.new(article_params)
+	@article.user_id = session[:user_id]
 	if @article.save
 		flash[:notice] = "New Article created"
 		redirect_to(:action => 'index')
@@ -23,8 +24,9 @@ def edit
 end
 
 def update
-	@article = Article.new(article_params)
-	if @article.update_attributes
+	@article = Article.find(params[:id])
+	@article.user_id = session[:user_id]
+	if @article.update_attributes(article_params)
 		flash[:notice] = "Article updated"
 		redirect_to(:action => 'index')
 	else
@@ -45,7 +47,7 @@ end
 
 private
 	def article_params
-		params.require(:article).permit(:article_name,:category,:content,:user_id)
+		params.require(:article).permit(:article_name,:category,:content,:user_id,:visible)
 	end
 
 end

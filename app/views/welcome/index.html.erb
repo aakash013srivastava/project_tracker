@@ -1,0 +1,20 @@
+<h2>Blogs homepage</h2>
+<table summary = "Articles List" border = "1">
+	<tr>
+		<th>Article ID</th>
+		<th>Category</th>
+		<th>Article Name</th>
+		<th>Published Date</th>
+		<th>Read</th>
+	</tr>
+	<%@listed.each do |k|%>
+	<tr>
+	<td><%= k.id%></td>
+	<td><%= k.category%></td>
+	<td><%= k.article_name%></td>
+	<td><%= k.created_at%></td>
+	<td><%= link_to("Read",:controller => 'welcome',:action => 'read',:id => k.id)%></td>
+	</tr>
+	<% end %>
+</table>
+

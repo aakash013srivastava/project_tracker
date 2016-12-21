@@ -1,7 +1,3 @@
-<%if session[:username].present? && session[:user_id].present? %>
-<h2>Welcome <%= p session[:username]%></h2>
-<% else %>
-
 <div class="login">	
 	<%= form_tag(:action => 'attempt_login') do %>
 	<table>
@@ -20,7 +16,8 @@
 	</table>
 	<% end %>
 </div>
-OR <%=link_to("Register",{:controller => 'users',:action => 'new'})%>
-<%end%>
+
+OR <%= link_to("Register",{:controller => 'users',:action => 'new'})%>
+
 
 
